@@ -40,6 +40,7 @@ using namespace std;
 	 */
 	int i2cdev::i2cWrite(char value){
 		char buf[1];
+		buf[0] = value;
 		if(write(this->file, buf, 1) != 1){
 			perror("Failed to write to the device\n");
 			return -1;
@@ -55,7 +56,7 @@ using namespace std;
 	char i2cdev::i2cRead(int regAddr){
 		this->i2cWrite(regAddr);
 		char buf[1];
-		if(read(this->file, buf, 1) != 1){
+		if(read(this->file, buf, 2) != 2){
 			perror("Failed to read the device\n");
 			return -1;
 		}
