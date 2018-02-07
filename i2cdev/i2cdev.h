@@ -26,8 +26,11 @@ class i2cdev{
 		
 		i2cdev(int b, int d);
 		int i2cWrite(char val);
-		int i2cRead(int regAddr);
+		char i2cRead(int regAddr);
+		int i2cWriteRegister(int RegAddr, char value);
+		char* i2cReadRegisters(int number, int addr);
+		~i2cdev();
 		
 };
 
-#endif i2cdev_H_
+#endif
