@@ -2,12 +2,13 @@
 #include <iostream>
 
 /**
- * Test file to test functionality of ADXL345 
+ * Test file to test functionality of i2cdev class
  */
-
-using namespace std;
-
-int main(){
+ 
+ using namespace std;
+ 
+ int main(){
+ 
 	i2cdev accel(1,0x53);
 	accel.i2cWriteRegister(0x31, 0x09); // Write DATA_FORMAT Register with correct FULL_RES and Range bitset
 	accel.i2cWriteRegister(0x2D, 0x08); // Turn POWER_CTL Register to "Measure" mode by writing 0x8 to register (Initially in Power Saving Mode)
@@ -20,4 +21,4 @@ int main(){
 	cout << accel_Z << endl; // Output DATAZ0 to confirm register was read correctly
 	
 	return 0;
-}
+ }

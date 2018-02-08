@@ -25,11 +25,11 @@ class i2cdev{
 	public:
 		
 		i2cdev(int b, int d);
-		int i2cWrite(char val);
-		char i2cRead(int regAddr);
-		int i2cWriteRegister(int RegAddr, char value);
-		char* i2cReadRegisters(int number, int addr);
-		~i2cdev();
+		virtual int i2cWrite(char val);
+		virtual char i2cRead(int regAddr);
+		virtual int i2cWriteRegister(int RegAddr, char value);
+		virtual char* i2cReadRegisters(int number, int addr);
+		virtual ~i2cdev();
 		
 };
 
